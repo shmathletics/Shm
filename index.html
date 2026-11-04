@@ -313,6 +313,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </body>
 </html>
 <!-- زر واتساب العائم -->
+
+<!-- زر واتساب العائم -->
 <a href="https://wa.me/966547802579"
    target="_blank"
    rel="noopener noreferrer"
@@ -320,29 +322,39 @@ document.getElementById('year').textContent = new Date().getFullYear();
    style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#25D366;color:white;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;box-shadow:0 4px 12px #0004;z-index:9999;">
   ☎
 </a>
+
+<!-- منع انتقال الموقع عند إرسال النموذج -->
 <script>
 document.getElementById("contact-form").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const form = this;
-  const data = new FormData(form);
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = "جارٍ الإرسال...";
 
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      body: data
+      body: new FormData(form)
     });
 
     const result = await response.json();
 
-    if (result.success) {
-      alert("تم إرسال رسالتك بنجاح!");
+    if (response.ok && result.success) {
+      alert("تم إرسال طلبك بنجاح!");
       form.reset();
     } else {
-      alert("تعذر إرسال الرسالة، حاولي مرة أخرى.");
+      alert("تعذر إرسال الطلب. حاولي مرة أخرى.");
     }
   } catch (error) {
-    alert("حدث خطأ في الاتصال، حاولي مرة أخرى.");
+    alert("حدث خطأ في الاتصال. حاولي مرة أخرى.");
+  } finally {
+    button.disabled = false;
+    button.textContent = "إرسال الطلب";
   }
 });
 </script>
+
+</body>
+</html>
