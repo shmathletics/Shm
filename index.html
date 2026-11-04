@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شركة سهم | نحو قمة الأداء </title>
+<title>شركة سهم | لإدارة وتشغيل المنشآت الرياضية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -41,7 +41,6 @@ nav a:hover {color:#E51B48}
     linear-gradient(270deg,#061D3A 5%,#061D3Ad9 45%,#061D3A40 100%),
     url('IMG_0915.jpeg') center/cover no-repeat;
 }
-
 
 .hero-content {max-width:760px;padding:70px 8%;animation:appear 1s ease both}
 .eyebrow {color:#F04463;font-size:12px;letter-spacing:1px}
@@ -139,7 +138,7 @@ footer {padding:28px 6%;text-align:center;border-top:1px solid #ffffff20;color:v
 }
 </style>
 </head>
-<meta name="google-site-verification" content="nt1j3Ny13d3YA3J4oH9HvicVPRZN2XJMFR5cULVOZG4" />
+
 <body>
 
 <header>
@@ -162,7 +161,7 @@ footer {padding:28px 6%;text-align:center;border-top:1px solid #ffffff20;color:v
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="eyebrow">شركة سهم SAHAM</div>
-    <h1>شركة سهم<br><span>نحو قمة الأداء .. </span></h1>
+    <h1>شركة سهم<br><span>لإدارة وتشغيل المنشآت الرياضية والأكاديميات والفعاليات</span></h1>
     <p>شركة سعودية متخصصة في إدارة وتشغيل المنشآت والأكاديميات الرياضية وتقديم الاستشارات الرياضية وتنظيم الفعاليات. نعمل وفق أفضل الممارسات الإدارية والرياضية لتحقيق التميز والاستدامة وتعزيز الأثر الإيجابي في المجتمع.</p>
     <a class="button" href="#sectors">استكشف قطاعاتنا</a>
   </div>
@@ -201,8 +200,6 @@ footer {padding:28px 6%;text-align:center;border-top:1px solid #ffffff20;color:v
     <h2>نملك <span>وندير</span></h2>
     <p>مشاريعنا وأكاديمياتنا الرياضية الرائدة في تطوير المواهب والمهارات.</p>
     <div class="features">
-      <div><b>•</b> أكاديمية مواهب الباحة</div>
-      <div><b>•</b> أكاديمية روز ROSE ACADEMY</div>
     </div>
     <a class="button" href="#contact">تواصل لمزيد من التفاصيل</a>
   </div>
@@ -250,7 +247,7 @@ footer {padding:28px 6%;text-align:center;border-top:1px solid #ffffff20;color:v
     <!-- النموذج المعدل المربوط مباشرة -->
 <form id="contact-form">
   <!-- مفتاح Access Key الخاص بك -->
-  <input type="hidden" name="access_key" value="4f31ae99-1d38-44b8-85e6-d3059043dc64">
+  <input type="hidden" name="access_key" value="6d8c9139-a7e4-4a22-8c09-87682507bab8">
 
   <!-- إعدادات عنوان الرسالة والحماية من البوتات -->
   <input type="hidden" name="subject" value="طلب جديد من موقع شركة سهم">
@@ -316,50 +313,36 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </body>
 </html>
 <!-- زر واتساب العائم -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <a href="https://wa.me/966547802579"
    target="_blank"
    rel="noopener noreferrer"
    aria-label="تواصل معنا عبر واتساب"
-   style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#25D366;color:white;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:9999;">
-  <i class="fa-brands fa-whatsapp"></i>
+   style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#25D366;color:white;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;box-shadow:0 4px 12px #0004;z-index:9999;">
+  ☎
 </a>
-
-</a>
-
-<!-- منع انتقال الموقع عند إرسال النموذج -->
 <script>
 document.getElementById("contact-form").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const form = this;
-  const button = form.querySelector('button[type="submit"]');
-  button.disabled = true;
-  button.textContent = "جارٍ الإرسال...";
+  const data = new FormData(form);
 
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      body: new FormData(form)
+      body: data
     });
 
     const result = await response.json();
 
-    if (response.ok && result.success) {
-      alert("تم إرسال طلبك بنجاح!");
+    if (result.success) {
+      alert("تم إرسال رسالتك بنجاح!");
       form.reset();
     } else {
-      alert("تعذر إرسال الطلب. حاولي مرة أخرى.");
+      alert("تعذر إرسال الرسالة، حاولي مرة أخرى.");
     }
   } catch (error) {
-    alert("حدث خطأ في الاتصال. حاولي مرة أخرى.");
-  } finally {
-    button.disabled = false;
-    button.textContent = "إرسال الطلب";
+    alert("حدث خطأ في الاتصال، حاولي مرة أخرى.");
   }
 });
 </script>
-
-</body>
-</html>
